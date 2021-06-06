@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>	
+	
+ <include file="$(find smb_control)/launch/control.launch">
+    <arg name="simulation"      default="true"/>
+    <arg name="robot_description"   default="robot_description"/>
+  </include>
+
+	<!-- Start EKF for localization 
+	<node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+    	<rosparam file="$(find smb_localization)/config/localization.yaml" command="load" />
+  	</node>-->
+
+    <!-- Launching RViz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find smb_localization)/rviz/smb_localization.rviz"/>
+</launch>
